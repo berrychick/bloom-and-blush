@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloom & Blush | Your Style Sanctuary</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --light-pink: #FFF0F3;
+            --medium-pink: #FFD1DC;
+            --dark-pink: #D4A5A5;
+            --accent-pink: #FF8FA3;
+            --cream-bg: #FFF9F9;
+            --text-color: #5D5D5D;
+        }
+
+        body {
+            margin: 0; font-family: 'Poppins', sans-serif;
+            background-color: var(--cream-bg); color: var(--text-color);
+            overflow-x: hidden; scroll-behavior: smooth;
+        }
+
+        /* --- 1. NAVIGATION BAR --- */
+        .nav-container {
+            width: 100%; display: flex; justify-content: center;
+            padding: 20px 0; background: white; position: sticky; top: 0; z-index: 1000;
+            box-shadow: 0 2px 10px rgba(255, 182, 193, 0.2);
+        }
+
+        .nav-box {
+            display: flex; gap: 10px; background: var(--light-pink);
+            padding: 8px 20px; border-radius: 50px; border: 2px solid var(--medium-pink);
+        }
+
+        .nav-item {
+            text-decoration: none; color: var(--dark-pink); font-weight: 600;
+            padding: 8px 15px; border-radius: 25px; transition: 0.3s;
+        }
+
+        .nav-item:hover { background: var(--accent-pink); color: white; }
+
+        /* --- 2. PAGES --- */
+        .page { display: none; min-height: 100vh; padding: 40px 20px; animation: fadeIn 0.8s ease; }
+        .active-page { display: flex; flex-direction: column; align-items: center; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- HOMEPAGE --- */
+        .banner { text-align: center; padding-top: 50px; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 5.5rem; color: var(--dark-pink); margin: 0; }
+        .tagline { font-family: 'Dancing Script', cursive; font-size: 2.2rem; margin-bottom: 30px; }
+        
+        .start-btn {
+            padding: 18px 45px; font-size: 1.3rem; background: var(--accent-pink);
+            color: white; border: none; border-radius: 50px; cursor: pointer;
+            font-family: 'Poppins'; font-weight: 600; position: relative; overflow: visible;
+        }
+
+        /* --- STYLE CATEGORY CARDS --- */
+        .cat-section { width: 100%; max-width: 1000px; margin-bottom: 40px; }
+        .cat-title { font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--accent-pink); border-bottom: 2px solid var(--medium-pink); margin-bottom: 20px; }
+        .vibe-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .vibe-card { background: white; padding: 20px; border-radius: 20px; border-left: 5px solid var(--medium-pink); box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+
+        /* --- BEAUTY SECTION --- */
+        .beauty-box { background: white; padding: 30px; border-radius: 30px; border: 1.5px dashed var(--accent-pink); text-align: center; max-width: 800px; }
+
+        /* --- QUIZ --- */
+        .quiz-container { background: white; padding: 40px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); max-width: 600px; width:100%; }
+        select { width: 100%; padding: 12px; margin: 10px 0 20px 0; border-radius: 10px; border: 1px solid var(--medium-pink); font-family: 'Poppins'; }
+        
+        #result-display {
+            display: none; margin-top: 20px; padding: 25px; border-radius: 20px;
+            background: var(--light-pink); border: 2px solid var(--accent-pink);
+        }
+
+        /* --- SHIMMER PARTICLES --- */
+        .shimmer { position: absolute; background: #FFD1DC; border-radius: 50%; pointer-events: none; animation: fly 0.8s linear forwards; }
+        @keyframes fly { 0% { transform: translate(0,0) scale(1); opacity: 1; } 100% { transform: translate(var(--x), var(--y)) scale(0); opacity: 0; } }
+    </style>
+</head>
+<body>
+
+    <div class="nav-container">
+        <div class="nav-box">
+            <a href="#" class="nav-item" onclick="showPage('home')">Home</a>
+            <a href="#" class="nav-item" onclick="showPage('style-cat')">Style Categories</a>
+            <a href="#" class="nav-item" onclick="showPage('beauty')">Beauty & Blush</a>
+            <a href="#" class="nav-item" onclick="showPage('quiz')">Bloom Quiz</a>
+            <a href="#" class="nav-item" onclick="showPage('mission')">Mission</a>
+        </div>
+    </div>
+
+    <div id="home" class="page active-page">
+        <div class="banner">
+            <h1 class="logo">Bloom & Blush 🌸</h1>
+            <p class="tagline">"where your style meets its bloom" ✨</p>
+            <button class="start-btn" onclick="startYourBloom(event)">Start Your Bloom ✨</button>
+        </div>
+    </div>
+
+    <div id="style-cat" class="page">
+        <h1 style="font-family:'Playfair Display'; color:var(--dark-pink); font-size: 3rem;">Style Categories</h1>
+        
+        <div class="cat-section">
+            <div class="cat-title">Feminine, Soft & Floral 🎀</div>
+            <div class="vibe-grid">
+                <div class="vibe-card"><b>Spring Blossom:</b> Floral Sundress + Pearl Clips + White Sneakers.</div>
+                <div class="vibe-card"><b>Secret Garden:</b> Lace Midi Dress + Ribbon Bow + Silk Scarf.</div>
+                <div class="vibe-card"><b>Traditional Wear:</b> Pastel Anarkali + Jhumkas + Glass Bangles.</div>
+            </div>
+        </div>
+
+        <div class="cat-section">
+            <div class="cat-title">Edgy, Streetwear & Cool 🕶️</div>
+            <div class="vibe-grid">
+                <div class="vibe-card"><b>Summer Glow:</b> Linen Co-ords + Straw Hat + Gold Hoops.</div>
+                <div class="vibe-card"><b>Petal Power:</b> Baggy Cargos + Cropped Hoodie + Chunky Trainers.</div>
+                <div class="vibe-card"><b>Autumn Petal:</b> Oversized Knit + Brown Leather Boots + Beret.</div>
+            </div>
+        </div>
+
+        <div class="cat-section">
+            <div class="cat-title">Bold & Clean Girl Look ✨</div>
+            <div class="vibe-grid">
+                <div class="vibe-card"><b>Winter Blush:</b> Velvet Bodycon + Faux Fur Coat + Silver Hoops.</div>
+                <div class="vibe-card"><b>Midnight Bloom:</b> Black Satin Slip + Rhinestone Heels + Clutch.</div>
+                <div class="vibe-card"><b>Ethic Chic:</b> Fusion Saree + Waist Belt + Modern Studs.</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="beauty" class="page">
+        <h1 style="font-family:'Playfair Display'; color:var(--dark-pink); font-size: 3rem;">Beauty & Blush 💄</h1>
+        <div class="beauty-box">
+            <h3>The Makeup Masterlist</h3>
+            <p>🌸 <b>For Soft Looks:</b> Peachy blush, clear lip gloss, and brown mascara.</p>
+            <p>✨ <b>For Clean Girl:</b> Laminated brows, dewy skin tint, and nude lip liner.</p>
+            <p>🔥 <b>For Bold Looks:</b> Sharp winged liner, matte red lipstick, and contoured cheeks.</p>
+        </div>
+    </div>
+
+    <div id="quiz" class="page">
+        <div class="quiz-container">
+            <h2 style="font-family:'Dancing Script'; color:var(--accent-pink); font-size: 2.5rem; text-align:center;">The Bloom Quiz ✨</h2>
+            
+            <label>1. What is your favorite vibe?</label>
+            <select id="vibe"><option value="soft">Feminine & Soft</option><option value="cool">Cool & Edgy</option><option value="bold">Bold & Clean</option></select>
+
+            <label>2. Where are you going?</label>
+            <select id="event">
+                <option value="party">Birthday / Late Night Party</option>
+                <option value="casual">Casual Outing / Friends</option>
+                <option value="formal">School / Library / Formal</option>
+                <option value="dinner">Dinner / Date Night</option>
+            </select>
+
+            <button class="start-btn" style="width:100%;" onclick="calculateBloom()">Reveal My Look 🪄</button>
+
+            <div id="result-display">
+                <h3 id="res-title" style="margin-top:0;"></h3>
+                <p id="res-outfit"></p>
+                <p id="res-beauty"></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="mission" class="page">
+        <div class="beauty-box">
+            <h2 style="font-family:'Dancing Script'; font-size: 3rem; color: var(--accent-pink);">Our Mission 💖</h2>
+            <p>To empower every girl to find her unique bloom and wear her confidence like a crown. Style isn't just about clothes; it's about the soul.</p>
+            <hr style="border: 0; border-top: 1px solid var(--medium-pink); margin: 30px 0;">
+            <h3 style="font-family:'Playfair Display';">A Secret Message for My Girlies... 💌</h3>
+            <p style="font-style: italic;">"You are already beautiful. The clothes just help the world see it. Never stop blooming, beautiful! 🌸✨"</p>
+        </div>
+    </div>
+
+    <script>
+        function showPage(p) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active-page'));
+            document.getElementById(p).classList.add('active-page');
+            window.scrollTo(0,0);
+        }
+
+        function startYourBloom(e) {
+            // SHIMMER EFFECT
+            for (let i = 0; i < 40; i++) {
+                const s = document.createElement('div');
+                s.className = 'shimmer';
+                s.style.left = e.clientX + 'px';
+                s.style.top = e.clientY + 'px';
+                s.style.setProperty('--x', (Math.random() - 0.5) * 300 + 'px');
+                s.style.setProperty('--y', (Math.random() - 0.5) * 300 + 'px');
+                s.style.width = s.style.height = Math.random() * 10 + 5 + 'px';
+                document.body.appendChild(s);
+                setTimeout(() => s.remove(), 800);
+            }
+            // NAVIGATE TO STYLE CATEGORY
+            setTimeout(() => showPage('style-cat'), 600);
+        }
+
+        function calculateBloom() {
+            const v = document.getElementById('vibe').value;
+            const e = document.getElementById('event').value;
+            const res = document.getElementById('result-display');
+            res.style.display = 'block';
+
+            let title, outfit, beauty;
+
+            if(e === 'party') {
+                title = "The Midnight Bloom 🌙";
+                outfit = "👗 <b>Look:</b> Satin dress, rhinestone heels, and a sleek clutch.";
+                beauty = "💄 <b>Beauty:</b> Bold red lips and winged eyeliner.";
+            } else if (e === 'formal') {
+                title = "The Clean Scholar ✨";
+                outfit = "👗 <b>Look:</b> Plaid skirt, crisp white shirt, and loafers.";
+                beauty = "💄 <b>Beauty:</b> Laminated brows and clear lip oil.";
+            } else if (v === 'soft') {
+                title = "The Spring Blossom 🌸";
+                outfit = "👗 <b>Look:</b> Floral sundress, pearl hair clips, and white sneakers.";
+                beauty = "💄 <b>Beauty:</b> Peachy blush and mascara.";
+            } else {
+                title = "The Urban Glow 🏙️";
+                outfit = "👗 <b>Look:</b> Baggy cargos and a cool cropped tee.";
+                beauty = "💄 <b>Beauty:</b> Dewy skin and neutral gloss.";
+            }
+
+            document.getElementById('res-title').innerText = title;
+            document.getElementById('res-outfit').innerHTML = outfit;
+            document.getElementById('res-beauty').innerHTML = beauty;
+        }
+    </script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
